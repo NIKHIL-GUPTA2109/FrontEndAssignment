@@ -2,7 +2,7 @@
 
 This is a simple web page that demonstrates the implementation of a drag and drop interface using HTML, CSS, and JavaScript. The page allows users to drag and drop items between two containers.
 
-#Description
+**Description**
 
 The drag and drop interface consists of two containers displayed side by side. The first container (container1) is populated with a list of items, which can be images, text, icons, or any other content. The second container (container2) is initially empty.
 
@@ -10,7 +10,7 @@ Users can click and drag an item from container1 to container2. While dragging, 
 
 The interface also includes a reset button. Clicking the reset button clears container2 and resets container1 to its original state, removing any items that were previously dropped.
 
-#How to Use
+**How to Use**
 
 To use the drag and drop interface, follow these steps:
 
@@ -23,7 +23,7 @@ To use the drag and drop interface, follow these steps:
 7. To reset the containers, click the "Reset" button. This will clear container2 and restore container1 to its original state.
 
 
-#Technologies Used
+**Technologies Used**
 1.HTML
 2.CSS
 3.JavaScript
