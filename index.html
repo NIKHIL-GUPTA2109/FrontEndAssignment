@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drag & Drop</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      border: 1px solid #43247c;
+      display: inline-block;
+      vertical-align: top;
+      background-color: #b24eec;
+    }
+
+    .item {
+      padding: 10px;
+      margin: 5px;
+      background-color: #2d8efd;
+      cursor: grab;
+      border-radius: 2px;
+    }
+
+    .item:active {
+      background-color: #16c7b8;
+    }
+
+    .success-message {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .reset-button {
+      margin-top: 10px;
+      background-color:rgb(77, 238, 56);
+    }
+  </style>
+</head>
+<body>
+    <h1><center>Drag & Drop</center></h1>
+  <div class="container" id="container1">
+    <div class="item" draggable="true">Iphone</div>
+    <div class="item" draggable="true">Mac</div>
+    <div class="item" draggable="true">Watch</div>
+    <div class="item" draggable="true">Money</div>
+  </div>
+  <div class="container" id="container2"></div>
+  <div class="success-message" id="successMessage"></div>
+  <button class="reset-button" onclick="resetContainers()">Reset</button>
+
+  <script>
+    const containers = document.querySelectorAll('.container');
+    const successMessage = document.getElementById('successMessage');
+
+    let draggedItem = null;
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function dragStart(event) {
+      draggedItem = event.target;
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      event.target.appendChild(draggedItem);
+      successMessage.textContent = 'Item dropped successfully!';
+    }
+
+    function resetContainers() {
+      const container1 = document.getElementById('container1');
+      const container2 = document.getElementById('container2');
+
+      while (container2.firstChild) {
+        container1.appendChild(container2.firstChild);
+      }
+
+      successMessage.textContent = '';
+    }
+
+    containers.forEach(container => {
+      container.addEventListener('dragover', allowDrop);
+      container.addEventListener('drop', drop);
+    });
+
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+      item.addEventListener('dragstart', dragStart);
+    });
+  </script>
+</body>
+</html>
